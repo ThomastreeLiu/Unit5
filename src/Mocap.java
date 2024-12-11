@@ -13,7 +13,7 @@ public class Mocap{
         for (int i =0;i<x.length;i++){
             System.out.println("("+x[i]+", "+y[i]+", "+z[i]+")");
         }
-        System.out.println();
+        System.out.println("Control points close ");
         for (int i =0;i<x.length;i++){
             if (x[i]<550)
                 System.out.println("("+x[i]+", "+y[i]+", "+z[i]+")");
