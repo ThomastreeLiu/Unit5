@@ -1,10 +1,11 @@
+package FarmHeros;
 
 import javax.swing.*;
-import javax.swing.border.*;
-import java.awt.event.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class BasicGrid extends JPanel implements ActionListener{
+public class FarmHeros extends JPanel implements ActionListener{
 
     private int row = 6;
     private int col = 7;
@@ -20,7 +21,7 @@ public class BasicGrid extends JPanel implements ActionListener{
     private String picStart = "c";
     private String picFileType = ".png";
 
-    public BasicGrid(){
+    public FarmHeros(){
         JPanel gridP = new JPanel(new GridLayout(row, col));
         int m = 0;
         for(int i = 0; i < row; i++){
@@ -44,7 +45,7 @@ public class BasicGrid extends JPanel implements ActionListener{
 
     protected static ImageIcon createImageIcon(String path){
 
-        java.net.URL imgURL = BasicGrid.class.getResource(path);
+        java.net.URL imgURL = FarmHeros.class.getResource(path);
         if(imgURL != null)
             return new ImageIcon(imgURL);
         else
@@ -52,11 +53,11 @@ public class BasicGrid extends JPanel implements ActionListener{
     }
     public static void main(String[] args) {
         JFrame.setDefaultLookAndFeelDecorated(true);
-        JFrame frame = new JFrame("BasicGrid");
+        JFrame frame = new JFrame("FarmHeros");
         frame.setSize(560, 460);         //resizes JFrame pane size
         frame.setBackground(Color.PINK);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        BasicGrid panel = new BasicGrid();
+        FarmHeros panel = new FarmHeros();
         panel.setOpaque(true);
         frame.add(panel);
         frame.setLocationRelativeTo(null);

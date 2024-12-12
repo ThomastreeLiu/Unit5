@@ -23,9 +23,9 @@ public class Fishy {
                 max=weight[i];
         }
         System.out.println("Biggest:"+max+"\n");
-        int min=0;
+        int min=500;
         for (int i = 0;i< weight.length;i++){
-            if (weight[i]>min)
+            if (weight[i]<min)
                 min=weight[i];
         }
         System.out.println("Smallest:"+min+"\n");

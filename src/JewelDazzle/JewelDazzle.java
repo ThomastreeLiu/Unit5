@@ -1,10 +1,11 @@
+package JewelDazzle;
 
 import javax.swing.*;
-import javax.swing.border.*;
-import java.awt.event.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class BasicGrid extends JPanel implements ActionListener{
+public class JewelDazzle extends JPanel implements ActionListener{
 
     private int row = 6;
     private int col = 7;
@@ -20,7 +21,7 @@ public class BasicGrid extends JPanel implements ActionListener{
     private String picStart = "c";
     private String picFileType = ".png";
 
-    public BasicGrid(){
+    public JewelDazzle(){
         JPanel gridP = new JPanel(new GridLayout(row, col));
         int m = 0;
         for(int i = 0; i < row; i++){
