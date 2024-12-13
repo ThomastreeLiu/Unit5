@@ -6,15 +6,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FarmHeros extends JPanel implements ActionListener{
-
+    private int button[][] = {
+            {3, 0, 0, 3, 3, 3, 3},
+            {3, 6, 6, 6, 6, 1, 0},
+            {3, 6, 4, 4, 4, 1, 2},
+            {3, 6, 4, 5, 4, 1, 2},
+            {0, 6, 4, 4, 4, 1, 2},
+            {0, 1, 1, 1, 1, 1, 2}
+    };
     private int row = 6;
     private int col = 7;
-    private int button[][] = {{0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0}};
+
     JLabel pics[] = new JLabel [row * col];
 
     private int sqDimension = 68;
@@ -62,5 +64,6 @@ public class FarmHeros extends JPanel implements ActionListener{
         frame.add(panel);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
     }
 }

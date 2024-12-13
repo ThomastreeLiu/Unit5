@@ -7,18 +7,18 @@ import java.awt.event.ActionListener;
 
 public class JewelDazzle extends JPanel implements ActionListener{
 
-    private int row = 6;
-    private int col = 7;
-    private int button[][] = {{0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0}};
+    private int row = 4;
+    private int col = 5;
+    private int button[][] = {
+            {1, 2, 3, 2, 1},
+            {2, 6, 4, 4, 2},
+            {2, 5, 4, 5, 2},
+            {1, 2, 3, 2, 1},
+    };
     JLabel pics[] = new JLabel [row * col];
 
-    private int sqDimension = 68;
-    private String picStart = "c";
+    private int sqDimension = 128;
+    private String picStart = "sd";
     private String picFileType = ".png";
 
     public JewelDazzle(){
@@ -45,7 +45,7 @@ public class JewelDazzle extends JPanel implements ActionListener{
 
     protected static ImageIcon createImageIcon(String path){
 
-        java.net.URL imgURL = BasicGrid.class.getResource(path);
+        java.net.URL imgURL = JewelDazzle.class.getResource(path);
         if(imgURL != null)
             return new ImageIcon(imgURL);
         else
@@ -54,10 +54,10 @@ public class JewelDazzle extends JPanel implements ActionListener{
     public static void main(String[] args) {
         JFrame.setDefaultLookAndFeelDecorated(true);
         JFrame frame = new JFrame("BasicGrid");
-        frame.setSize(560, 460);         //resizes JFrame pane size
+        frame.setSize(650, 530);         //resizes JFrame pane size
         frame.setBackground(Color.PINK);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        BasicGrid panel = new BasicGrid();
+        JewelDazzle panel = new JewelDazzle();
         panel.setOpaque(true);
         frame.add(panel);
         frame.setLocationRelativeTo(null);
