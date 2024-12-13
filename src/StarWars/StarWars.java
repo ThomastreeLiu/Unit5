@@ -1,3 +1,8 @@
+//Name:StarWars
+//Date:Dec.13
+//Author:Thomas
+//Purpose:Print pictures in pattern
+
 package StarWars;
 
 import javax.swing.*;
@@ -7,8 +12,8 @@ import java.awt.event.ActionListener;
 
 public class StarWars extends JPanel implements ActionListener{
 
-    private int row = 9;
-    private int col = 5;
+    private int row = 5;
+    private int col = 9;
     private int button[][] = {
             {3, 3, 4, 4, 5, 4, 4, 3, 3},
             {3, 1, 1, 1, 2, 1, 1, 1, 3},

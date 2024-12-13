@@ -1,3 +1,8 @@
+//Name:JewelDazzle
+//Date:Dec.13
+//Author:Thomas
+//Purpose:Print pictures in pattern
+
 package JewelDazzle;
 
 import javax.swing.*;

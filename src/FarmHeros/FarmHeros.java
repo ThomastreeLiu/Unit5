@@ -1,3 +1,8 @@
+//Name:Farmheros
+//Date:Dec.13
+//Author:Thomas
+//Purpose:Print pictures in pattern
+
 package FarmHeros;
 
 import javax.swing.*;
