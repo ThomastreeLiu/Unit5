@@ -45,10 +45,17 @@ public class HeatMap {
         System.out.println("Coordinate:\n");
         for (int i = 0;i<row;i++){
             for (int e = 0;e<col;e++) {
-
+                if (heatmap[i][e]==min)
+                    System.out.println("("+i+","+e+")");
             }
         }
         System.out.println("Max:"+max);
-        System.out.println("Coordinate:\n"+maxc);
+        System.out.println("Coordinate:\n");
+        for (int i = 0;i<row;i++){
+            for (int e = 0;e<col;e++) {
+                if (heatmap[i][e]==max)
+                    System.out.println("("+i+","+e+")");
+            }
+        }
     }
 }
