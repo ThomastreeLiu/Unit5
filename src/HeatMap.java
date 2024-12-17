@@ -2,9 +2,7 @@ public class HeatMap {
     public static void main (String args[]){
         double total = 0;
         int max = 0;
-        String maxc="";
         int min = 10;
-        String minc="";
         double amt = 0;
         int row = 16;
         int col = 16;
