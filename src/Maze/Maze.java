@@ -137,10 +137,12 @@ public class  Maze extends JPanel implements ActionListener {
         }
         // Down direction
         else if (e.getActionCommand().equals("down")) {
-            if (x+1 >= row){
+            if (x+1 >= row)
                 feedback.setText("Off the board!");
-            }
-
+            else if (currLevel[x+1][y]==0) 
+                move(x+1,y,"down");
+            else
+                feedback.setText("There is a wall.");
         }
         // Right direction
         else if (e.getActionCommand().equals("right")) {
