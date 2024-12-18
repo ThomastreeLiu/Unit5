@@ -1,3 +1,7 @@
+//Name:HeatMap
+//Date:Dec.18
+//Author:Thomas
+//Purpose:Print heatmap
 public class HeatMapL {
     public static void main (String args[]){
         int row = 16;
