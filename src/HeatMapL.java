@@ -36,6 +36,9 @@ public class HeatMapL {
                     System.out.print("&");
                 else if (heatmap[i][e]==8)
                     System.out.print("%");
+                System.out.print(" ");
+                if (e==15)
+                    System.out.println("");
             }
         }
     }
