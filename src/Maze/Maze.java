@@ -66,23 +66,23 @@ public class  Maze extends JPanel implements ActionListener {
         JButton up = new JButton("up");
         up.setActionCommand("up");
         up.addActionListener(this);
-        add(up);
         JButton left = new JButton("left");
         left.setActionCommand("left");
         left.addActionListener(this);
-        add(left);
         JButton down = new JButton("down");
         down.setActionCommand("down");
         down.addActionListener(this);
-        add(down);
         JButton right = new JButton("right");
         right.setActionCommand("right");
         right.addActionListener(this);
-        add(right);
         JButton next = new JButton("next");
         next.setActionCommand("next");
         next.setBackground(new Color(150, 235, 194));
         next.addActionListener(this);
+        add(up);
+        add(down);
+        add(left);
+        add(right);
         add(next);
         feedback = new JLabel("Click on the buttons to move.");
         add(feedback);
@@ -133,24 +133,79 @@ public class  Maze extends JPanel implements ActionListener {
         }
         // Up direction
         else if (e.getActionCommand().equals("up")) {
-
+            if (x-1 >= row)
+                feedback.setText("Off the board!");
+            else if (currLevel[x-1][y]==0)
+                move(x-1,y,"down");
+            else if (currLevel[x-1][y]==7) {
+                move(x - 1, y, "down");
+                coins++;
+                currLevel[x][y]=0;
+            }
+            else if (currLevel[x-1][y]==9) {
+                move(x - 1, y, "down");
+                key=true;
+                currLevel[x][y]=0;
+            }
+            else
+                feedback.setText("There is a wall.");
         }
         // Down direction
         else if (e.getActionCommand().equals("down")) {
             if (x+1 >= row)
                 feedback.setText("Off the board!");
-            else if (currLevel[x+1][y]==0) 
+            else if (currLevel[x+1][y]==0)
                 move(x+1,y,"down");
+            else if (currLevel[x+1][y]==7) {
+                move(x + 1, y, "down");
+                coins++;
+                currLevel[x][y]=0;
+            }
+            else if (currLevel[x+1][y]==9) {
+                move(x + 1, y, "down");
+                key=true;
+                currLevel[x][y]=0;
+            }
             else
                 feedback.setText("There is a wall.");
         }
         // Right direction
         else if (e.getActionCommand().equals("right")) {
-
+            if (y+1 >= col)
+                feedback.setText("Off the board!");
+            else if (currLevel[x][y+1]==0)
+                move(x,y+1,"down");
+            else if (currLevel[x][y+1]==7) {
+                move(x, y+1, "down");
+                coins++;
+                currLevel[x][y]=0;
+            }
+            else if (currLevel[x][y+1]==9) {
+                move(x, y+1, "down");
+                key=true;
+                currLevel[x][y]=0;
+            }
+            else
+                feedback.setText("There is a wall.");
         }
         // Left direction
         else if (e.getActionCommand().equals("left")) {
-
+            if (y-1 >= col)
+                feedback.setText("Off the board!");
+            else if (currLevel[x][y-1]==0)
+                move(x,y-1,"down");
+            else if (currLevel[x][y-1]==7) {
+                move(x, y-1, "down");
+                coins++;
+                currLevel[x][y]=0;
+            }
+            else if (currLevel[x][y-1]==9) {
+                move(x, y-1, "down");
+                key=true;
+                currLevel[x][y]=0;
+            }
+            else
+                feedback.setText("There is a wall.");
         }
         score.setText("You have " + coins + "/10 coins + " + diamonds + "/2 diamonds + key? " + key);
 
