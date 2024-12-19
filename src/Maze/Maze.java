@@ -136,14 +136,24 @@ public class  Maze extends JPanel implements ActionListener {
             if (x-1 >= row)
                 feedback.setText("Off the board!");
             else if (currLevel[x-1][y]==0)
-                move(x-1,y,"down");
+                move(x-1,y,"up");
             else if (currLevel[x-1][y]==7) {
-                move(x - 1, y, "down");
+                move(x - 1, y, "up");
                 coins++;
                 currLevel[x][y]=0;
             }
+            else if (currLevel[x-1][y]==6) {
+                if (key==true)
+                    currLevel[x][y]=8;
+                else feedback.setText("need key");
+            }
+            else if (currLevel[x-1][y]==8) {
+                move(x - 1, y, "up");
+                diamonds++;
+                currLevel[x][y]=0;
+            }
             else if (currLevel[x-1][y]==9) {
-                move(x - 1, y, "down");
+                move(x - 1, y, "up");
                 key=true;
                 currLevel[x][y]=0;
             }
@@ -166,6 +176,16 @@ public class  Maze extends JPanel implements ActionListener {
                 key=true;
                 currLevel[x][y]=0;
             }
+            else if (currLevel[x+1][y]==6) {
+                if (key==true)
+                    currLevel[x][y]=8;
+                else feedback.setText("need key");
+            }
+            else if (currLevel[x+1][y]==8) {
+                move(x + 1, y, "down");
+                diamonds++;
+                currLevel[x][y]=0;
+            }
             else
                 feedback.setText("There is a wall.");
         }
@@ -174,15 +194,25 @@ public class  Maze extends JPanel implements ActionListener {
             if (y+1 >= col)
                 feedback.setText("Off the board!");
             else if (currLevel[x][y+1]==0)
-                move(x,y+1,"down");
+                move(x,y+1,"right");
             else if (currLevel[x][y+1]==7) {
-                move(x, y+1, "down");
+                move(x, y+1, "right");
                 coins++;
                 currLevel[x][y]=0;
             }
             else if (currLevel[x][y+1]==9) {
-                move(x, y+1, "down");
+                move(x, y+1, "right");
                 key=true;
+                currLevel[x][y]=0;
+            }
+            else if (currLevel[x][y+1]==6) {
+                if (key==true)
+                    currLevel[x][y]=8;
+                else feedback.setText("need key");
+            }
+            else if (currLevel[x][y+1]==8) {
+                move(x, y+1, "right");
+                diamonds++;
                 currLevel[x][y]=0;
             }
             else
@@ -193,15 +223,25 @@ public class  Maze extends JPanel implements ActionListener {
             if (y-1 >= col)
                 feedback.setText("Off the board!");
             else if (currLevel[x][y-1]==0)
-                move(x,y-1,"down");
+                move(x,y-1,"left");
             else if (currLevel[x][y-1]==7) {
-                move(x, y-1, "down");
+                move(x, y-1, "left");
                 coins++;
                 currLevel[x][y]=0;
             }
             else if (currLevel[x][y-1]==9) {
-                move(x, y-1, "down");
+                move(x, y-1, "left");
                 key=true;
+                currLevel[x][y]=0;
+            }
+            else if (currLevel[x][y-1]==6) {
+                if (key==true)
+                    currLevel[x][y]=8;
+                else feedback.setText("need key");
+            }
+            else if (currLevel[x][y-1]==8) {
+                move(x, y-1, "left");
+                diamonds++;
                 currLevel[x][y]=0;
             }
             else
