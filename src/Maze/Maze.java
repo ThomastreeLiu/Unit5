@@ -144,7 +144,7 @@ public class  Maze extends JPanel implements ActionListener {
             }
             else if (currLevel[x-1][y]==6) {
                 if (key==true)
-                    currLevel[x][y]=8;
+                    currLevel[x-1][y]=8;
                 else feedback.setText("need key");
             }
             else if (currLevel[x-1][y]==8) {
@@ -178,7 +178,7 @@ public class  Maze extends JPanel implements ActionListener {
             }
             else if (currLevel[x+1][y]==6) {
                 if (key==true)
-                    currLevel[x][y]=8;
+                    currLevel[x+1][y]=8;
                 else feedback.setText("need key");
             }
             else if (currLevel[x+1][y]==8) {
@@ -207,7 +207,7 @@ public class  Maze extends JPanel implements ActionListener {
             }
             else if (currLevel[x][y+1]==6) {
                 if (key==true)
-                    currLevel[x][y]=8;
+                    currLevel[x][y+1]=8;
                 else feedback.setText("need key");
             }
             else if (currLevel[x][y+1]==8) {
@@ -236,7 +236,7 @@ public class  Maze extends JPanel implements ActionListener {
             }
             else if (currLevel[x][y-1]==6) {
                 if (key==true)
-                    currLevel[x][y]=8;
+                    currLevel[x][y-1]=8;
                 else feedback.setText("need key");
             }
             else if (currLevel[x][y-1]==8) {
