@@ -145,7 +145,8 @@ public class  Maze extends JPanel implements ActionListener {
             else if (currLevel[x-1][y]==6) {
                 if (key==true)
                     currLevel[x-1][y]=8;
-                else feedback.setText("need key");
+                else
+                    feedback.setText("need key");
             }
             else if (currLevel[x-1][y]==8) {
                 move(x - 1, y, "up");
