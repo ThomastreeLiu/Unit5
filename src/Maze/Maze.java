@@ -3,7 +3,6 @@ package Maze;
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.border.*;
 
 public class  Maze extends JPanel implements ActionListener {
 
@@ -42,6 +41,53 @@ public class  Maze extends JPanel implements ActionListener {
     private int lvl = 1;
 
     public Maze() {
+
+        // frame.setSize(660, 520); //set in main class
+
+        JPanel gridP = new JPanel(new GridLayout(row, col));
+        gridP.setBackground(new Color(150, 235, 194));
+        int m = 0;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+
+                pics[m] = new JLabel(createImageIcon(picStart + currLevel[i][j] + picFileType));
+                pics[m].setPreferredSize(new Dimension(sqDimension, sqDimension));
+                gridP.add(pics[m]);
+                m++;
+            }
+        }
+        add(gridP);
+        score = new JLabel("You have " + coins + "/10 coins + " + diamonds + "/2 diamonds + key? " + key);
+        score.setPreferredSize(new Dimension(300, 20));
+        add(score);
+        pics[x * col + y].setIcon(createImageIcon(characterPic));
+
+        JButton up = new JButton("up");
+        up.setActionCommand("up");
+        up.addActionListener(this);
+        JButton left = new JButton("left");
+        left.setActionCommand("left");
+        left.addActionListener(this);
+        JButton down = new JButton("down");
+        down.setActionCommand("down");
+        down.addActionListener(this);
+        JButton right = new JButton("right");
+        right.setActionCommand("right");
+        right.addActionListener(this);
+        JButton next = new JButton("next");
+        next.setActionCommand("next");
+        next.setBackground(new Color(150, 235, 194));
+        next.addActionListener(this);
+        add(up);
+        add(down);
+        add(left);
+        add(right);
+        add(next);
+        feedback = new JLabel("Click on the buttons to move.");
+        add(feedback);
+    }
+
+    public void Maze1() {
 
         // frame.setSize(660, 520); //set in main class
 
@@ -129,7 +175,7 @@ public class  Maze extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getActionCommand().equals("next")) {
-
+            Maze1();
         }
         // Up direction
         else if (e.getActionCommand().equals("up")) {
@@ -156,6 +202,7 @@ public class  Maze extends JPanel implements ActionListener {
             else if (currLevel[x-1][y]==9) {
                 move(x - 1, y, "up");
                 key=true;
+                showDiamonds();
                 currLevel[x][y]=0;
             }
             else
@@ -175,6 +222,7 @@ public class  Maze extends JPanel implements ActionListener {
             else if (currLevel[x+1][y]==9) {
                 move(x + 1, y, "down");
                 key=true;
+                showDiamonds();
                 currLevel[x][y]=0;
             }
             else if (currLevel[x+1][y]==6) {
@@ -204,6 +252,7 @@ public class  Maze extends JPanel implements ActionListener {
             else if (currLevel[x][y+1]==9) {
                 move(x, y+1, "right");
                 key=true;
+                showDiamonds();
                 currLevel[x][y]=0;
             }
             else if (currLevel[x][y+1]==6) {
@@ -233,6 +282,7 @@ public class  Maze extends JPanel implements ActionListener {
             else if (currLevel[x][y-1]==9) {
                 move(x, y-1, "left");
                 key=true;
+                showDiamonds();
                 currLevel[x][y]=0;
             }
             else if (currLevel[x][y-1]==6) {
