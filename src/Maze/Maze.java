@@ -57,7 +57,7 @@ public class  Maze extends JPanel implements ActionListener {
             }
         }
         add(gridP);
-        score = new JLabel("You have " + coins + "/10 coins + " + diamonds + "/2 diamonds + key? " + key);
+        score = new JLabel("You have " + coins + "/10 coins + " + diamonds + "/4 diamonds + key? " + key);
         score.setPreferredSize(new Dimension(300, 20));
         add(score);
         pics[x * col + y].setIcon(createImageIcon(characterPic));
@@ -87,7 +87,7 @@ public class  Maze extends JPanel implements ActionListener {
         add(feedback);
     }
 
-    public void Maze1() {
+    /*public void Maze1() {
 
         // frame.setSize(660, 520); //set in main class
 
@@ -134,6 +134,8 @@ public class  Maze extends JPanel implements ActionListener {
         add(feedback);
     }
 
+     */
+
     public void move(int newx, int newy, String dir) {
 
 
@@ -174,11 +176,13 @@ public class  Maze extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getActionCommand().equals("next")) {
+        /*if (e.getActionCommand().equals("next")) {
             Maze1();
         }
+
+         */
         // Up direction
-        else if (e.getActionCommand().equals("up")) {
+        if (e.getActionCommand().equals("up")) {
             if (x-1 >= row)
                 feedback.setText("Off the board!");
             else if (currLevel[x-1][y]==0)
